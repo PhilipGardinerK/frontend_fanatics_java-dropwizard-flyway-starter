@@ -51,7 +51,7 @@ public class EmployeeDao {
             Statement statement = connection.createStatement();
 
             ResultSet resultSet = statement.executeQuery("SELECT * FROM "
-                    + "Employee;");
+                    + "Employee WHERE RoleID = 2;");
 
             while (resultSet.next()) {
                 Employee employee = new Employee(
