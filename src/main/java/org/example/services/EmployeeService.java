@@ -20,12 +20,12 @@ public class EmployeeService {
         this.employeeValidator = employeeValidator;
     }
 
-    public int createEmployee(
+    public int createDeliveryEmployee(
             final EmployeeRequest employeeRequest)
             throws FailedToCreateException, SQLException, InvalidException {
         employeeValidator.validateEmployee(employeeRequest);
 
-        int id = employeeDao.createEmployee(employeeRequest);
+        int id = employeeDao.createDeliveryEmployee(employeeRequest);
 
         if (id == -1) {
             throw new FailedToCreateException(Entity.EMPLOYEE);

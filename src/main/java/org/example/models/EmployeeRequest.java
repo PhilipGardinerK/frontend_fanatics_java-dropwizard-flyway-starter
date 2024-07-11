@@ -6,9 +6,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class EmployeeRequest {
 
     @JsonProperty
-    private int roleID;
-
-    @JsonProperty
     private String employeeFname;
 
     @JsonProperty
@@ -28,8 +25,6 @@ public class EmployeeRequest {
 
     @JsonCreator
     public EmployeeRequest(
-                           @JsonProperty("roleID")
-                           final int roleID,
                            @JsonProperty("employeeFname")
                            final String employeeFname,
                            @JsonProperty("employeeLname")
@@ -42,21 +37,12 @@ public class EmployeeRequest {
                            final double salary,
                            @JsonProperty("commRate")
                            final double commRate) {
-        this.roleID = roleID;
         this.employeeFname = employeeFname;
         this.employeeLname = employeeLname;
         this.bankAcctNo = bankAcctNo;
         this.niNo = niNo;
         this.salary = salary;
         this.commRate = commRate;
-    }
-
-    public int getRoleID() {
-        return roleID;
-    }
-
-    public void setRoleID(final int roleID) {
-        this.roleID = roleID;
     }
 
     public String getEmployeeFname() {

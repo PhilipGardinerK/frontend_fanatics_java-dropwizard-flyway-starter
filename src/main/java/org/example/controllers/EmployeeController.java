@@ -24,12 +24,15 @@ public class EmployeeController {
     }
 
     @POST
+    @Path("/delivery")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response createEmployee(final EmployeeRequest employeeRequest) {
+    public Response createDeliveryEmployee(
+            final EmployeeRequest employeeRequest) {
         try {
             return Response
                     .status(Response.Status.CREATED)
-                    .entity(employeeService.createEmployee(employeeRequest))
+                    .entity(employeeService.createDeliveryEmployee(
+                            employeeRequest))
                     .build();
         } catch (SQLException | FailedToCreateException e) {
             System.out.println(e.getMessage());

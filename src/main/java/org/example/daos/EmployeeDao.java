@@ -10,25 +10,24 @@ import java.sql.Statement;
 
 public class EmployeeDao {
 
-    public int createEmployee(final EmployeeRequest employeeRequest)
+    public int createDeliveryEmployee(final EmployeeRequest employeeRequest)
             throws SQLException {
         Connection c = DatabaseConnector.getConnection();
 
         String insertStatement =
                 "INSERT INTO Employee (roleID,employeeFname, employeeLname, "
                         + "bankAcctNo, niNo, salary, commRate) "
-                        + "VALUES (?,?,?,?,?,?,?);";
+                        + "VALUES (2,?,?,?,?,?,?);";
 
         PreparedStatement st = c.prepareStatement(insertStatement,
                 Statement.RETURN_GENERATED_KEYS);
 
-        st.setInt(1, employeeRequest.getRoleID());
-        st.setString(2, employeeRequest.getEmployeeFname());
-        st.setString(3, employeeRequest.getEmployeeLname());
-        st.setString(4, employeeRequest.getBankAcctNo());
-        st.setString(5, employeeRequest.getNiNo());
-        st.setDouble(6, employeeRequest.getSalary());
-        st.setDouble(7, employeeRequest.getCommRate());
+        st.setString(1, employeeRequest.getEmployeeFname());
+        st.setString(2, employeeRequest.getEmployeeLname());
+        st.setString(3, employeeRequest.getBankAcctNo());
+        st.setString(4, employeeRequest.getNiNo());
+        st.setDouble(5, employeeRequest.getSalary());
+        st.setDouble(6, employeeRequest.getCommRate());
 
         st.executeUpdate();
 
