@@ -44,8 +44,7 @@ public class EmployeeRequest {
     }
 
     public String getEmployeeLname() {
-        return employeeLname;
-    }
+        return employeeLname; }
 
     public void setEmployeeLname(final String employeeLname) {
         this.employeeLname = employeeLname;
