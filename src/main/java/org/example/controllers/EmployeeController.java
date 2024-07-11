@@ -6,6 +6,7 @@ import org.example.Exceptions.InvalidException;
 import org.example.models.EmployeeRequest;
 import org.example.services.EmployeeService;
 
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -40,6 +41,17 @@ public class EmployeeController {
         } catch (InvalidException e) {
             return Response.status(Response.Status.BAD_REQUEST)
                     .entity(e.getMessage()).build();
+        }
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getEmployees() {
+        try {
+            return Response.ok().entity(employeeService.getAllEmployees())
+                    .build();
+        } catch (SQLException e) {
+            return Response.serverError().build();
         }
     }
 }
