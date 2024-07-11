@@ -156,7 +156,6 @@
         <module name="SimplifyBooleanReturn"/>
 
         <module name="FinalClass"/>
-        <module name="HideUtilityClassConstructor"/>
         <module name="InterfaceIsType"/>
 
         <!-- Miscellaneous other checks.                   -->

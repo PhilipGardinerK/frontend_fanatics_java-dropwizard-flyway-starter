@@ -4,10 +4,19 @@ import org.example.Exceptions.Entity;
 import org.example.Exceptions.FailedToCreateException;
 import org.example.Exceptions.InvalidException;
 import org.example.Validators.EmployeeValidator;
+import org.example.daos.DatabaseConnector;
 import org.example.daos.EmployeeDao;
+import org.example.mappers.EmployeeMapper;
+import org.example.models.Employee;
 import org.example.models.EmployeeRequest;
+import org.example.models.EmployeeResponse;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EmployeeService {
     EmployeeDao employeeDao;
@@ -32,5 +41,11 @@ public class EmployeeService {
         }
 
         return id;
+    }
+
+    public List<EmployeeResponse> getAllEmployees()
+            throws SQLException {
+        return EmployeeMapper.mapEmployeeListToEmployeeResponseList(
+                employeeDao.getAllEmployees());
     }
 }
