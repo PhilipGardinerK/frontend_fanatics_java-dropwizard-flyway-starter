@@ -17,7 +17,7 @@ public class EmployeeDao {
         String insertStatement =
                 "INSERT INTO Employee (roleID,employeeFname, employeeLname, "
                         + "bankAcctNo, niNo, salary, commRate) "
-                        + "VALUES (?,?,?,?,?,>,?);";
+                        + "VALUES (?,?,?,?,?,?,?);";
 
         PreparedStatement st = c.prepareStatement(insertStatement,
                 Statement.RETURN_GENERATED_KEYS);

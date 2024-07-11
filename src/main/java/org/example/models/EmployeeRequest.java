@@ -27,15 +27,21 @@ public class EmployeeRequest {
     private double commRate;
 
     @JsonCreator
-    public EmployeeRequest(final int roleID,
+    public EmployeeRequest(
+                           @JsonProperty("roleID")
+                           final int roleID,
                            @JsonProperty("employeeFname")
                            final String employeeFname,
                            @JsonProperty("employeeLname")
                            final String employeeLname,
-                           @JsonProperty("bankAcctNo") final String bankAcctNo,
-                           @JsonProperty("niNo") final String niNo,
-                           @JsonProperty("salary") final double salary,
-                           @JsonProperty("commRate") final double commRate) {
+                           @JsonProperty("bankAcctNo")
+                           final String bankAcctNo,
+                           @JsonProperty("niNo")
+                           final String niNo,
+                           @JsonProperty("salary")
+                           final double salary,
+                           @JsonProperty("commRate")
+                           final double commRate) {
         this.roleID = roleID;
         this.employeeFname = employeeFname;
         this.employeeLname = employeeLname;
