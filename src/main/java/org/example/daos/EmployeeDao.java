@@ -44,7 +44,7 @@ public class EmployeeDao {
         return -1;
     }
 
-    public List<Employee> getAllEmployees() throws SQLException {
+    public List<Employee> getAllDeliveryEmployees() throws SQLException {
         List<Employee> employees = new ArrayList();
 
         try (Connection connection = DatabaseConnector.getConnection()) {

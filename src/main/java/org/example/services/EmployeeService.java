@@ -46,6 +46,6 @@ public class EmployeeService {
     public List<EmployeeResponse> getAllEmployees()
             throws SQLException {
         return EmployeeMapper.mapEmployeeListToEmployeeResponseList(
-                employeeDao.getAllEmployees());
+                employeeDao.getAllDeliveryEmployees());
     }
 }
