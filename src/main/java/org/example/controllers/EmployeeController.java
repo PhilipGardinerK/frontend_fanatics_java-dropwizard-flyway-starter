@@ -14,7 +14,7 @@ import javax.ws.rs.core.Response;
 import java.sql.SQLException;
 
 @Api("Frontend_Fanatics_Employee")
-@Path("/api/employee")
+@Path("/api/employees")
 public class EmployeeController {
 
     EmployeeService employeeService;
@@ -32,7 +32,8 @@ public class EmployeeController {
                     .entity(employeeService.createEmployee(employeeRequest))
                     .build();
         } catch (SQLException | FailedToCreateException e) {
-            return Response.serverError().entity(e.getMessage()).build();
+            System.out.println(e.getMessage());
+            return Response.serverError().build();
         } catch (InvalidException e) {
             return Response.status(Response.Status.BAD_REQUEST)
                     .entity(e.getMessage()).build();
