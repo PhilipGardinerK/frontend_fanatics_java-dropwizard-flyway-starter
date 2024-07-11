@@ -32,7 +32,7 @@ public class EmployeeController {
                     .entity(employeeService.createEmployee(employeeRequest))
                     .build();
         } catch (SQLException | FailedToCreateException e) {
-            return Response.serverError().build();
+            return Response.serverError().entity(e.getMessage()).build();
         } catch (InvalidException e) {
             return Response.status(Response.Status.BAD_REQUEST)
                     .entity(e.getMessage()).build();
